@@ -3,6 +3,9 @@ Re-Implementation of the CNN+LSTM model for Image Captioning in Vietnamese.
 
 Original source code: [here](https://github.com/tensorflow/models/tree/master/research/im2txt)
 
+![OUTPUT](examples.gif)
+
+
 ## Vietnamese Image-Caption Dataset (COCO4K_VN)
 Published here:
 
