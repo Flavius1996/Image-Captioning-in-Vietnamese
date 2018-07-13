@@ -62,7 +62,7 @@ VOCAB_FILE=<Path to word_count.txt file>
 IMAGE_FILE=<the pattern of images in folder, ex: "${HOME}/im2txt/Images_test/*.jpg">
 RESULT_JSONFILE=<Name of the output result json file>
 ```
-_**Run test.sh**
+***Run test.sh***
 
 The <RESULT_JSONFILE> is needed if you want to perform Evaluation code for BLEU, ROUGE, CIDEr. To compute the scores, please clone MSCOCO official evaluation code at: 
 
