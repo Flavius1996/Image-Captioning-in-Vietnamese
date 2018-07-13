@@ -62,9 +62,22 @@ VOCAB_FILE=<Path to word_count.txt file>
 IMAGE_FILE=<the pattern of images in folder, ex: "${HOME}/im2txt/Images_test/*.jpg">
 RESULT_JSONFILE=<Name of the output result json file>
 ```
-**Run test.sh**
+_**Run test.sh**
 
-The RESULT_JSONFILE is needed if you want to perform Evaluation code for BLEU, ROUGE, CIDEr.
+The <RESULT_JSONFILE> is needed if you want to perform Evaluation code for BLEU, ROUGE, CIDEr. To compute the scores, please clone MSCOCO official evaluation code at: 
+
+https://github.com/tylin/coco-caption
+
+Copy <RESULT_JSONFILE> to "results" folder and download the groundtruth for 138 test-images at [here](https://drive.google.com/open?id=108sHHSgXa5Xmwxx_AvxVZlxioPeWpYp-) to "annotations" folder. For further information, view file cocoEvalCapDemo.ipynb
+
+You may need to add following python lines to adapt evaluation code for Unicode:
+```shell
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+```
+
+Note that: MSCOCO evaluation code also include METEOR metric. However, source code of this metric is based on English dictionary, so the METEOR score computed on Vietnamese can not be trusted.
 
 ## TRAINING:
 ### Download 4000 train images and captions
@@ -72,7 +85,7 @@ You can download the 4000 images [here](https://drive.google.com/open?id=1OLNtHY
 
 Choose the language of captions you want to train at folder Captions_JSON_format in [COCO4K_VN](https://drive.google.com/drive/folders/1uWgMETh2TjD9skVLEoJ6XwoDnJMvcP_9). For example, here we choose [Vietnamese captions](https://drive.google.com/open?id=1cZJkkk2dUFoVoKorA8g0rNBxXuj91z3l) which translated by Human and applied Tokenization.
 
-Download Pre-trained Inception-v3 on ImageNet dataset: **Run down_inceptionv3.sh**
+Download Pre-trained Inception-v3 on ImageNet dataset: ***Run down_inceptionv3.sh***
 
 ### Prepare dataset
 Edit ./im2txt/data/preprocess_VNcap.sh:
@@ -90,7 +103,7 @@ Edit prepare_dataset.sh:
 ```shell
 MSCOCO_DIR=<Where you want to save the prepared dataset>
 ```
-**Run prepare_dataset.sh**
+***Run prepare_dataset.sh***
 
 After this, you will have 16 TFRecord files, which contain 20000 image-caption pairs, and a vocabulary file (word_counts.txt) at <MSCOCO_DIR> folder. The implement uses TFRecord files for faster training and mode efficient on data allocation, but the storage is 5-time larger than normal.
 
@@ -108,7 +121,7 @@ MODEL_DIR=<Where to save the model>
   --train_inception=false \
   --number_of_steps=100000
 ```
-**Run train.sh**
+***Run train.sh***
 
 ### Training Phase 2: finetune Inception-v3 and LSTM weights
 Phase 2, we also fine-tune Inception-v3. This phase will require a lot of GPU memory, so remember to reduce the batch_size at ./im2txt/configuration.py if you encounter the Out-Of-Memory (OOM) error.
@@ -124,7 +137,7 @@ MODEL_DIR=<Where to save the model>
   --train_inception=true \
   --number_of_steps=200000
 ```
-**Run train.sh**
+***Run train.sh***
 
 Normally, the whole training process takes 3-4 days on a single Tesla K20 (5 GB).
 
