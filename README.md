@@ -38,7 +38,7 @@ Choose a model in [pretrained COCO4K_VN models](https://drive.google.com/drive/u
 
 For example, we choose [the model](https://drive.google.com/drive/u/1/folders/1tnIwdofIzZjtgfrtTTA8ob5qOG-TWHr7) which trained on 4000 images with Tokenized Human_Translation Vietnamese captions. A tensorflow model is packed in 3 file: .cpkt-<iter>-data-00000-of-00001, .cpkt-index and .cpkt-meta, you need download all 3 files to the same folder. 
 
-Note: Some pretrained model folders in COCO4K_VN will have 2 models respectively from 2 phases of training process. You only need to choose 1 model to download. The number in filename indicates the training iteration. 
+Note: Some pretrained model folders in COCO4K_VN will have 2 models respectively from 2 phases of training process. You only need to choose 1 model to download. The number in filename indicates the number of trained iterations. 
   
 It is also required a vocabulary file to run testing. You can find this file in each folder of pretrained models, name: word_count.txt
   
@@ -50,7 +50,7 @@ VOCAB_FILE=<Path to word_count.txt file>
 IMAGE_FILE=<Path to an image>
 RESULT_JSONFILE=""    # Must set to empty string for running only 1 image
 ```
-**Run test.sh**
+***Run test.sh***
 
 Note: the generated caption will be printed to the terminal (command-line) window, some unicode charaters may be printed as square boxes. 
 
@@ -85,7 +85,11 @@ You can download the 4000 images [here](https://drive.google.com/open?id=1OLNtHY
 
 Choose the language of captions you want to train at folder Captions_JSON_format in [COCO4K_VN](https://drive.google.com/drive/folders/1uWgMETh2TjD9skVLEoJ6XwoDnJMvcP_9). For example, here we choose [Vietnamese captions](https://drive.google.com/open?id=1cZJkkk2dUFoVoKorA8g0rNBxXuj91z3l) which translated by Human and applied Tokenization.
 
-Download Pre-trained Inception-v3 on ImageNet dataset: ***Run down_inceptionv3.sh***
+Download Pre-trained Inception-v3 on ImageNet dataset. Edit down_inceptionv3.sh:
+```shell
+INCEPTION_DIR=<Where to save Inception-v3>
+```
+***Run down_inceptionv3.sh***
 
 ### Prepare dataset
 Edit ./im2txt/data/preprocess_VNcap.sh:
