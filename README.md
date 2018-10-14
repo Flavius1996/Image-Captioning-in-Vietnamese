@@ -147,4 +147,6 @@ MODEL_DIR=<Where to save the model>
 Normally, the whole training process takes 3-4 days on a single Tesla K20 (5 GB).
 
 ## REFERENCE:
-O. Vinyals, A. Toshev, S. Bengio, and D. Erhan, **“Show and tell: A neural image caption generator”** in Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition, 2015.
+O. Vinyals, A. Toshev, S. Bengio, and D. Erhan, **“Show and tell: A neural image caption generator”** in Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition (2015).
+
+Vinyals, O., Toshev, A., Bengio, S., Erhan, D.: **"Show and tell: Lessons learned from the 2015 mscoco image captioning challenge"**. IEEE transactions on pattern analysis and machine intelligence (2017)
