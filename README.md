@@ -3,6 +3,7 @@ Re-Implementation of the CNN+LSTM model for Image Captioning in Vietnamese.
 
 Original source code: [here](https://github.com/tensorflow/models/tree/master/research/im2txt)
 
+Here is some examples that Vietnamese captions are more compatible with the images than English ones:
 ![OUTPUT](examples.gif)
 
 
@@ -30,7 +31,7 @@ Installed the following required packages:
 * **Natural Language Toolkit (NLTK)**:
     * First install NLTK ([instructions](http://www.nltk.org/install.html))
     * Then install the NLTK data package "punkt" ([instructions](http://www.nltk.org/data.html))
-* **Unzip**
+* **Unzip tool**
 
 ## TESTING:
 ### Download a pretrained models and word_count file.
@@ -146,4 +147,4 @@ MODEL_DIR=<Where to save the model>
 Normally, the whole training process takes 3-4 days on a single Tesla K20 (5 GB).
 
 ## REFERENCE:
-O. Vinyals, A. Toshev, S. Bengio, and D. Erhan, “Show and tell: A neural image caption generator,” in Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition, 2015.
+O. Vinyals, A. Toshev, S. Bengio, and D. Erhan, **“Show and tell: A neural image caption generator”** in Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition, 2015.
